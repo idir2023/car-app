@@ -3,8 +3,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="{{ route('dashboard') }}" class="logo">
-                <img src="{{ asset('assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand" class="navbar-brand"
-                    height="20" />
+                <img src="{{ asset('assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand" class="navbar-brand" height="20" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -23,7 +22,8 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
-                <li class="nav-item active">
+                <!-- Dashboard Item with Active Class -->
+                <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
@@ -39,12 +39,16 @@
                         </ul>
                     </div>
                 </li>
+
+                <!-- Components Section -->
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
                     <h4 class="text-section">Components</h4>
                 </li>
+
+                <!-- Base Components Menu with Collapse -->
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#base">
                         <i class="fas fa-layer-group"></i>
@@ -66,6 +70,30 @@
                         </ul>
                     </div>
                 </li>
+
+                <!-- Markes Menu Item with Active Class Check -->
+                <li class="nav-item {{ request()->routeIs('markes.index') ? 'active' : '' }}">
+                    <a href="{{ route('markes.index') }}">
+                        <i class="fas fa-tag"></i>
+                        <p>Markes</p>
+                    </a>
+                </li>
+
+                <!-- Model Cars Menu Item with Active Class Check -->
+                <li class="nav-item {{ request()->routeIs('model_cars.index') ? 'active' : '' }}">
+                    <a href="{{ route('model_cars.index') }}">
+                        <i class="fas fa-car"></i>
+                        <p>Model Cars</p>
+                    </a>
+                </li>
+
+                      <!-- Model Cars Menu Item with Active Class Check -->
+                      <li class="nav-item {{ request()->routeIs('cars.index') ? 'active' : '' }}">
+                        <a href="{{ route('cars.index') }}">
+                            <i class="fas fa-car-crash"></i>
+                            <p>Manage Cars</p>
+                        </a>
+                    </li>
             </ul>
         </div>
     </div>

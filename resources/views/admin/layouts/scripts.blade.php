@@ -30,6 +30,7 @@
 
  <!-- Kaiadmin JS -->
  <script src="{{ asset('assets/js/kaiadmin.min.js') }}"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
  <!-- Kaiadmin DEMO methods, don't include it in your project! -->
  <script src="{{ asset('assets/js/setting-demo.js') }}"></script>

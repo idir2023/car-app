@@ -45,4 +45,24 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function carOwners()
+    {
+        return $this->hasMany(CarOwner::class);
+    }
+    public function carOwner()
+    {
+        return $this->hasOne(CarOwner::class);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    // Check if the user has a specific role
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
+    }
 }
